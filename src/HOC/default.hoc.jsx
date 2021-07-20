@@ -7,9 +7,10 @@ import DefaultLayout from "../layouts/default.layout";
 
 const DefaultHoc=({component:Component,...rest})=>{
     return ( <>
+       
         <Route {...rest} component={(props)=>(
             <DefaultLayout>
-                <Component />
+                <Component {...props}/>
             </DefaultLayout>
         )
         } />
