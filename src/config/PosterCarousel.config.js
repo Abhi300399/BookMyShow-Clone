@@ -3,7 +3,7 @@ const settings = {
     autoplay:false,
     slidesToShow: 5,
     slidesToScroll: 2,
-    InitialSlide: 0,
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
@@ -24,7 +24,7 @@ const settings = {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
