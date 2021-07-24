@@ -10,7 +10,10 @@ import "slick-carousel/slick/slick-theme.css";
 //components
 import HomePage from "./pages/Home.page";
 import Movie from "./pages/Movie.page";
+import Plays from "./pages/plays.page";
+
 import { Route } from "react-router-dom";
+
 
 
 
@@ -21,6 +24,7 @@ function App() {
     
     <DefaultHoc path="/" exact component={HomePage}/>
     <MovieHOC path="/movie/:id" exact  component={Movie}/>
+    <DefaultHoc path="/plays" exact component={Plays}/>
 
     
    </>
