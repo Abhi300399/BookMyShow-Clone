@@ -1,15 +1,31 @@
-import M from 'minimatch';
-import React,{useContext} from 'react';
+
+import React,{useContext,useState} from 'react';
+
+//component
+import PaymentModal from '../PaymentModal/Payment.component';
 
 //context
 import { MovieContext } from '../../context/movie.context';
 
 export const MovieInfo = () => {
     const {movie}=useContext(MovieContext);
+    const [isOpen,setIsOpen]=useState(false);
+    const [price,setPrice]=useState(0);
+
+    const rentMovie=()=>{
+        setIsOpen(true);
+        setPrice(149);
+    }
+
+    const buyMovie=()=>{
+        setIsOpen(true);
+        setPrice(599);
+    }
 
     const genres=movie.genres?.map(({name})=> name).join(", ");
     return (
         <>
+        <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price}/>
         <div className="flex flex-col gap-8">
             <div className="flex items-center gap-3 md:px-4">
                 <div className="w-40 h-8">
@@ -24,8 +40,8 @@ export const MovieInfo = () => {
                 <h4>{(movie.runtime/60).toFixed(2)} h &bull; {genres} &bull; 13+</h4>
             </div>
             <div className="flex items-center gap-3 md:px-4 md:w-screen lg:w-full">
-                <button className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Rent ₹149</button>
-                <button className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Buy ₹149</button>
+                <button onClick={rentMovie} className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Rent ₹149</button>
+                <button onClick={buyMovie} className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Buy ₹599</button>
             </div>
             </div>
         </div>

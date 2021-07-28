@@ -20,7 +20,7 @@ import axios from 'axios';
                 setMovie(getMovie.data)
             }
             requestMovie();
-        }, []);
+        }, [id]);
 
     return (
         <>
